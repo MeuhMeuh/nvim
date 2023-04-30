@@ -1,0 +1,46 @@
+-- What else?
+vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("i", "kj", "<Esc>")
+
+-- Remap netrw :Ex
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- Paste without yanking newly selected line
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
+-- Move lines
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Append next line to current one (as usual) but don't move cursor
+vim.keymap.set("n", "J", "mzJ`z")
+
+-- Sexy C-d/C-u to browse with centered cursor
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Smoother cursor behavior when searching with n
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- Separate yanks vim VS OS - <leader>y to yank in OS-one
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
+-- Deleting to void register
+vim.keymap.set("n", "<leader>d", "\"_d") -- is this working?
+vim.keymap.set("v", "<leader>d", "\"_d")
+
+-- Disabling Q
+vim.keymap.set("n", "Q", "<nop>")
+
+-- Vim Quicklist
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+-- Easy replace
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
