@@ -1,5 +1,5 @@
 function MakeItSexy(color)
-	color = color or "rose-pine"
+	color = color or "tokyonight-moon"
 	vim.cmd.colorscheme(color)
 
 	-- Transparency - doesn't work?
