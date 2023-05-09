@@ -2,11 +2,15 @@
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "kj", "<Esc>")
 
--- Remap netrw :Ex
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- Tentative de chgt des raccourcis du truc lsp
+-- vim.keymap.set("i", "<C-k>", cmp.mapping.select_prev_item(), { 'i', 'c' })
+-- vim.keymap.set("i", "<C-j>", cmp.mapping.select_next_item(), { 'i', 'c' })
 
 -- Paste without yanking newly selected line
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>pp", "\"_dP")
+
+-- Remap netrw :Ex
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Move lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
