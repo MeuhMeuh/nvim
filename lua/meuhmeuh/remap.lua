@@ -1,6 +1,5 @@
 -- What else?
 vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("i", "kj", "<Esc>")
 
 -- Paste without yanking newly selected line
 vim.keymap.set("x", "<leader>pp", "\"_dP")
