@@ -16,9 +16,16 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<CR>'] = cmp.mapping.confirm({ select = true }),
 })
 
+cmp_mappings['<Tab>'] = nil
+cmp_mappings['<S-Tab>'] = nil
+
+lsp.setup_nvim_cmp({
+  mapping = cmp_mappings
+})
+
 
 lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({buffer = bufnr})
+  local opts = {buffer = bufnr, remap = false}
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -30,9 +37,19 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-end)
 
--- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+  vim.keymap.set('n', '<leader>w', function()
+    local params = vim.lsp.util.make_formatting_params({})
+    local handler = function(err, result)
+      if not result then return end
+
+      -- vim.lsp.util.apply_text_edits(result, bufnr, client.offset_encoding)
+      vim.lsp.buf.format()
+      vim.cmd('write')
+    end
+
+    client.request('textDocument/formatting', params, handler, bufnr)
+  end, {buffer = bufnr})
+end)
 
 lsp.setup()
