@@ -2,10 +2,6 @@
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "kj", "<Esc>")
 
--- Tentative de chgt des raccourcis du truc lsp
--- vim.keymap.set("i", "<C-k>", cmp.mapping.select_prev_item(), { 'i', 'c' })
--- vim.keymap.set("i", "<C-j>", cmp.mapping.select_next_item(), { 'i', 'c' })
-
 -- Paste without yanking newly selected line
 vim.keymap.set("x", "<leader>pp", "\"_dP")
 
@@ -33,7 +29,6 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Deleting to void register
-vim.keymap.set("n", "<leader>d", "\"_d") -- is this working?
 vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- Disabling Q
