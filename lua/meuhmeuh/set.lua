@@ -34,6 +34,9 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+-- Shorter jump with C-d/C-u
+vim.opt.scroll = 10
+
 vim.opt.updatetime = 50
 
 -- 80-char colored column

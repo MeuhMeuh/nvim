@@ -42,3 +42,8 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- Easy replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Move between split windows
+vim.keymap.set("n", "<S-h>", "<C-w>h")
+vim.keymap.set("n", "<S-j>", "<C-w>j")
+vim.keymap.set("n", "<S-k>", "<C-w>k")
+vim.keymap.set("n", "<S-l>", "<C-w>l")
