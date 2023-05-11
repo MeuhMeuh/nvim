@@ -21,6 +21,18 @@ wk.register({
   },
   s = "Replace current word",
   u = "Undotree",
+  v = {
+    name = "LSP",
+    a = "Code action",
+    d = "Open float",
+    k = "Hover definition",
+    r = "Rename",
+    R = "References",
+    w = {
+      name = "Workspace",
+      s = "Workspace symbol"
+    },
+  },
   y = "Copy in OS yank",
 }, { prefix = "<leader>" })
 
