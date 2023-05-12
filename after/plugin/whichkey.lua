@@ -3,6 +3,7 @@ local wk = require("which-key")
 wk.register({
   a = "Add to harpoon",
   d = "Deleting to void register",
+  e = { "<cmd>Telescope find_files<cr>", "Find File" },
   h = "No highlighting",
   f = {
     name = "Telescope",

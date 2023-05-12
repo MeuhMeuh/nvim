@@ -41,3 +41,12 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Easy replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Delete current buffer
+vim.keymap.set("n", "<leader>x", "<cmd>:bdelete %<CR>")
+
+-- Bufferline
+vim.keymap.set("n", "<C-h>", "<cmd>:BufferLineCyclePrev<CR>")
+vim.keymap.set("i", "<C-h>", "<cmd>:BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<C-l>", "<cmd>:BufferLineCycleNext<CR>")
+vim.keymap.set("i", "<C-l>", "<cmd>:BufferLineCycleNext<CR>")
