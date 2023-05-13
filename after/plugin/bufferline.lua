@@ -4,7 +4,6 @@ bufferline.setup {
   options = {
     style_preset = bufferline.style_preset.minimal,
     themable = true,
-    buffer_close_icon = '⤫',
   },
   highlights = {
     background = {
