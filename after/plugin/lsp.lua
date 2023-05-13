@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero')
 
-lsp.preset({"recommended"})
+lsp.preset({ "recommended" })
 
 lsp.ensure_installed({
   'eslint',
@@ -9,15 +9,16 @@ lsp.ensure_installed({
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
+lsp.configure('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
         globals = { 'vim' }
       }
-    }
+    },
   }
 })
+
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -34,6 +35,15 @@ cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
+})
+
+-- Remove yaml key ordering warning
+lsp.configure('yamlls', {
+  settings = {
+    yaml = {
+      keyOrdering = false,
+    },
+  }
 })
 
 
@@ -57,6 +67,7 @@ lsp.on_attach(function(client, bufnr)
       if not result then return end
 
       vim.lsp.buf.format()
+      -- Todo: move that to eslint's own on_attach fn
       vim.cmd.EslintFixAll()
       vim.cmd('write')
     end

@@ -2,18 +2,25 @@ local bufferline = require('bufferline')
 
 bufferline.setup {
   options = {
-    -- buffer_close_icon = "⤫",
-    show_close_icon = false,
-    numbers = "buffer_id",
-    -- TODO Doesn't work
-    highlights = {
-      fill = {
-        fg = '#FF0000',
-        bg = '#00FF00'
-      },
-      background = {
-        fg = 'red'
-      }
-    }
+    style_preset = bufferline.style_preset.minimal,
+    themable = true,
+    buffer_close_icon = '⤫',
   },
+  highlights = {
+    background = {
+      fg = '#65bcff',
+    },
+    tab = {
+      fg = 'white',
+      bg = 'white'
+    },
+    buffer_visible = {
+      fg = '#71805d',
+      bold = false,
+    },
+    buffer_selected = {
+      fg = '#e2ffbb',
+      bold = false,
+    },
+  }
 }

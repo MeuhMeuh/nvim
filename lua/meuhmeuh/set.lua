@@ -41,5 +41,3 @@ vim.opt.updatetime = 50
 
 -- 80-char colored column
 vim.opt.colorcolumn = "120"
-
-vim.g.mapleader = " "

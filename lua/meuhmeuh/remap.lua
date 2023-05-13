@@ -17,6 +17,7 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- Sexy C-d/C-u to browse with centered cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.opt.scroll = 10
 
 -- Smoother cursor behavior when searching with n
 vim.keymap.set("n", "n", "nzzzv")
@@ -41,12 +42,14 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Easy replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
+--
 -- Delete current buffer
-vim.keymap.set("n", "<leader>x", "<cmd>:bdelete %<CR>")
+vim.keymap.set("n", "<leader>x", "<cmd>bdelete %<CR>")
 
 -- Bufferline
 vim.keymap.set("n", "<C-h>", "<cmd>:BufferLineCyclePrev<CR>")
-vim.keymap.set("i", "<C-h>", "<cmd>:BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>:BufferLineCycleNext<CR>")
-vim.keymap.set("i", "<C-l>", "<cmd>:BufferLineCycleNext<CR>")
+
+-- Copy relative path of current buffer
+vim.api.nvim_set_keymap('n', '<Leader>tt', ':call setreg("+", systemlist("echo "..fnameescape(expand("%"))))[0] <CR>', { noremap = true, silent = true })
+
