@@ -19,4 +19,5 @@ require("lazy").setup("meuhmeuh.plugins")
 require("meuhmeuh.remap")
 require("meuhmeuh.set")
 
-
+-- For an unknown reason, needs to be set after everything
+vim.opt.scroll = 5 

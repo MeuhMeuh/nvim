@@ -14,13 +14,22 @@ wk.register({
     b = { "<cmd>Telescope buffers<cr>", "Search current word" },
     h = { "<cmd>Telescope oldfiles<cr>", "Recent files (history)" },
   },
-  j = { "<cmd>cprev<cr>zz", "(Quicklist) Previous"},
-  k = { "<cmd>cnext<cr>zz", "(Quicklist) Next"},
+  k = "LSP: code action",
+  k = "LSP: hover",
   p = {
     p = "Paste without yanking",
     v = { "<cmd>Ex<cr>", "netrw" },
   },
-  s = "Replace current word",
+  s = {
+    name = "Replace current word",
+    s = "Global",
+    c = "Global (confirm)",
+    ["$"] = {
+      name = "To end of file",
+      ["$"] = "To end of file",
+      c = "To end of file (confirm)",
+    },
+  },
   u = "Undotree",
   v = {
     name = "LSP",
@@ -34,6 +43,7 @@ wk.register({
       s = "Workspace symbol"
     },
   },
+  x = 'Close current buffer',
   y = "Copy in OS yank",
 }, { prefix = "<leader>" })
 

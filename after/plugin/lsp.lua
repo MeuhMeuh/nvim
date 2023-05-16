@@ -26,6 +26,8 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+  ['<C-p>'] = cmp.mapping.scroll_docs(-4),
+  ['<C-n>'] = cmp.mapping.scroll_docs(4),
   ['<C-Space>'] = cmp.mapping.complete(),
   ['<CR>'] = cmp.mapping.confirm({ select = true }),
 })
@@ -52,6 +54,8 @@ lsp.on_attach(function(client, bufnr)
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "<leader>vk", function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set("n", "<leader>j", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
