@@ -30,6 +30,9 @@ wk.register({
       c = "To end of file (confirm)",
     },
   },
+  t = {
+    t = "Copy relative path"
+  },
   u = "Undotree",
   v = {
     name = "LSP",

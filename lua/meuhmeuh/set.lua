@@ -1,5 +1,5 @@
 -- Big cursor
-vim.opt.guicursor=""
+vim.opt.guicursor = ""
 
 -- Relative numbers ftw
 vim.opt.nu = true
@@ -39,5 +39,5 @@ vim.opt.scroll = 10
 
 vim.opt.updatetime = 50
 
--- 80-char colored column
+-- 120-char colored column
 vim.opt.colorcolumn = "120"

@@ -72,7 +72,11 @@ lsp.on_attach(function(client, bufnr)
 
       vim.lsp.buf.format()
       -- Todo: move that to eslint's own on_attach fn
-      vim.cmd.EslintFixAll()
+      -- vim.cmd.EslintFixAll()
+      -- vim.api.nvim_echo({ { tostring(vim.fn.exists(':EslintFixAll')), 'None' } }, true, {})
+      if vim.fn.exists(':EslintFixAll') > 0 then
+        vim.cmd('EslintFixAll')
+      end
       vim.cmd('write')
     end
 

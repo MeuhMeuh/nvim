@@ -4,7 +4,7 @@ bufferline.setup {
   options = {
     style_preset = bufferline.style_preset.minimal,
     themable = true,
-    numbers = "buffer_id"
+    numbers = "buffer_id",
   },
   highlights = {
     background = {
@@ -31,5 +31,6 @@ bufferline.setup {
     numbers_selected = {
       fg = '#666666',
     },
-  }
+  },
+
 }
