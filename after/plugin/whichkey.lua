@@ -14,12 +14,13 @@ wk.register({
     b = { "<cmd>Telescope buffers<cr>", "Search current word" },
     h = { "<cmd>Telescope oldfiles<cr>", "Recent files (history)" },
   },
-  k = "LSP: code action",
+  j = "LSP: code action",
   k = "LSP: hover",
   p = {
     p = "Paste without yanking",
     v = { "<cmd>Ex<cr>", "netrw" },
   },
+  q = "Close quicklist",
   s = {
     name = "Replace current word",
     s = "Global",
@@ -47,6 +48,7 @@ wk.register({
     },
   },
   x = 'Close current buffer',
+  X = 'Close all buffers except current',
   y = "Copy in OS yank",
 }, { prefix = "<leader>" })
 

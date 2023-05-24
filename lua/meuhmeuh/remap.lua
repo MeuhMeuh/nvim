@@ -48,11 +48,13 @@ vim.keymap.set("n", "<leader>s$c", [[:.,$s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><L
 --
 -- Delete current buffer
 vim.keymap.set("n", "<leader>x", "<cmd>bdelete %<CR>")
+-- Delete current buffer except current one
+vim.keymap.set("n", "<leader>X", "<cmd>%bd|e#|bd#<CR>")
 
 -- Bufferline
 vim.keymap.set("n", "<C-h>", "<cmd>:BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>:BufferLineCycleNext<CR>")
 
 -- Copy relative path of current buffer
-vim.api.nvim_set_keymap('n', '<Leader>tt', ':call setreg("+", systemlist("echo "..fnameescape(expand("%"))))[0] <CR>', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap('n', '<Leader>tt', ':let @+ = join(systemlist("echo " .. fnameescape(expand("%"))), "\\n") <CR>',
+  { noremap = true, silent = true })
