@@ -6,6 +6,7 @@ lsp.ensure_installed({
   'eslint',
   'rust_analyzer',
   'tsserver',
+  'solargraph',
 })
 
 -- Fix Undefined global 'vim'
@@ -32,8 +33,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<CR>'] = cmp.mapping.confirm({ select = true }),
 })
 
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
+-- cmp_mappings['<Tab>'] = nil
+-- cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
