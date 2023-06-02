@@ -57,5 +57,6 @@ vim.keymap.set("n", "<C-h>", "<cmd>:BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>:BufferLineCycleNext<CR>")
 
 -- Copy relative path of current buffer
-vim.api.nvim_set_keymap('n', '<Leader>tt', ':let @+ = join(systemlist("echo " .. fnameescape(expand("%"))), "\\n") <CR>',
+vim.api.nvim_set_keymap('n', '<Leader>tt',
+  ':let @+ = join(systemlist("echo " .. fnameescape(expand("%"))), "\\n") <CR><cmd>lua vim.notify("Path in clipboard", "info")<CR>',
   { noremap = true, silent = true })

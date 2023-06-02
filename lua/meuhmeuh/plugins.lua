@@ -1,10 +1,26 @@
 return {
   {
-    'nvim-telescope/telescope.nvim', version = '0.1.1',
+    'nvim-telescope/telescope.nvim',
+    version = '0.1.1',
     dependencies = { { 'nvim-lua/plenary.nvim' } }
   },
 
-      'folke/tokyonight.nvim',
+  'folke/tokyonight.nvim',
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  },
 
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   { 'nvim-treesitter/playground' },
@@ -64,11 +80,30 @@ return {
   },
 
   { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+
   {
     'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
-      require'alpha'.setup(require'alpha.themes.startify'.config)
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
+    end,
+    opts = function()
+      local dashboard = require("alpha.themes.startify")
+      local logo = [[
+
+
+███╗   ███╗███████╗██╗   ██╗██╗  ██╗███╗   ███╗███████╗██╗   ██╗██╗  ██╗
+████╗ ████║██╔════╝██║   ██║██║  ██║████╗ ████║██╔════╝██║   ██║██║  ██║
+██╔████╔██║█████╗  ██║   ██║███████║██╔████╔██║█████╗  ██║   ██║███████║
+██║╚██╔╝██║██╔══╝  ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ██║   ██║██╔══██║
+██║ ╚═╝ ██║███████╗╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗╚██████╔╝██║  ██║
+╚═╝     ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
+
+
+    ]]
+
+      dashboard.section.header.val = vim.split(logo, "\n")
+      return dashboard
     end
-  }
+  },
 }
