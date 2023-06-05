@@ -15,8 +15,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Sexy C-d/C-u to browse with centered cursor
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- vim.keymap.set("n", "<C-d>", "5jzz")
+vim.api.nvim_set_keymap('n', '<C-d>', '5jzz<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-u>', '5kzz<CR>', { silent = true })
 
 -- Smoother cursor behavior when searching with n
 vim.keymap.set("n", "n", "nzzzv")
@@ -29,6 +30,9 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Deleting to void register
 vim.keymap.set("v", "<leader>d", "\"_d")
+
+-- Easy ciw
+vim.keymap.set("n", "<leader>,", "ciw")
 
 -- Disabling Q
 vim.keymap.set("n", "Q", "<nop>")

@@ -9,6 +9,7 @@ bufferline.setup {
   highlights = {
     background = {
       fg = '#65bcff',
+      bg = '#1e2030',
     },
     tab = {
       fg = 'white',
@@ -16,10 +17,12 @@ bufferline.setup {
     },
     buffer_visible = {
       fg = '#71805d',
+      bg = '#1e2030',
       bold = false,
     },
     buffer_selected = {
       fg = '#e2ffbb',
+      bg = '#1e2030',
       bold = false,
     },
     numbers = {
