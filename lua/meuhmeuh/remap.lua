@@ -37,6 +37,9 @@ vim.keymap.set("n", "<leader>,", "ciw")
 -- Disabling Q
 vim.keymap.set("n", "Q", "<nop>")
 
+-- When using _, ensuring that editor's left side is at char 0
+vim.keymap.set("n", "_", "0_")
+
 -- Vim Quicklist
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
@@ -52,9 +55,9 @@ vim.keymap.set("n", "<leader>sGG", [[:.,$s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Le
 vim.keymap.set("n", "<leader>sGc", [[:.,$s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left><Left>]])
 --
 -- Delete current buffer
-vim.keymap.set("n", "<leader>x", "<cmd>bdelete %<CR>")
+vim.keymap.set("n", "<leader>x", "<cmd>bdelete! %<CR>")
 -- Delete current buffer except current one
-vim.keymap.set("n", "<leader>X", "<cmd>%bd|e#|bd#<CR>")
+vim.keymap.set("n", "<leader>X", "<cmd>%bd!|e#|bd!#<CR>")
 
 -- Bufferline
 vim.keymap.set("n", "<C-h>", "<cmd>:BufferLineCyclePrev<CR>")

@@ -49,6 +49,26 @@ lsp.configure('yamlls', {
   }
 })
 
+-- lsp.configure('rust_analyzer', {
+--   assist = {
+--     importEnforceGranularity = true,
+--     importPrefix = 'crate',
+--   },
+--   cargo = {
+--     allFeatures = true,
+--   },
+--   checkOnSave = {
+--     command = 'clippy',
+--   },
+--   inlayHints = { locationLinks = false },
+--   diagnostics = {
+--     enable = true,
+--     experimental = {
+--       enable = true,
+--     },
+--   },
+-- })
+
 
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
@@ -64,6 +84,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>va", function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set("n", "<leader>vR", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vr", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
   vim.keymap.set('n', '<leader>w', function()
