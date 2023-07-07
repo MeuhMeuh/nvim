@@ -20,4 +20,6 @@ require("meuhmeuh.remap")
 require("meuhmeuh.set")
 
 -- For an unknown reason, needs to be set after everything
-vim.opt.scroll = 5 
+vim.opt.scroll = 5
+
+MakeItSexy()
