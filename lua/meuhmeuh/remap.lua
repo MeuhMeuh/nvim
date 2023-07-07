@@ -5,7 +5,7 @@ vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("x", "<leader>pp", "\"_dP")
 
 -- Remap netrw :Ex
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Move lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

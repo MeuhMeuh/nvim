@@ -20,7 +20,7 @@ wk.register({
   k = "LSP: hover",
   p = {
     p = "Paste without yanking",
-    v = { "<cmd>Ex<cr>", "netrw" },
+    -- v = { "<cmd>Ex<cr>", "netrw" },
   },
   q = "Close quicklist",
   s = {
