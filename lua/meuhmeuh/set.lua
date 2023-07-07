@@ -41,3 +41,5 @@ vim.opt.updatetime = 50
 
 -- 120-char colored column
 vim.opt.colorcolumn = "120"
+
+vim.opt.winbar = "%=%m %f"
