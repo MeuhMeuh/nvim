@@ -20,11 +20,21 @@ telescope.setup {
     initial_mode = "normal",
   },
   pickers = {
+    find_files = {
+      hidden = true,
+    },
+    old_files = {
+      hidden = true,
+    },
     live_grep = {
-      initial_mode = "insert"
+      additional_args = function(opts)
+        return { "--hidden" }
+      end,
+      initial_mode = "insert",
     },
     grep_string = {
-      initial_mode = "insert"
+      hidden = true,
+      initial_mode = "insert",
     },
   },
   extensions = {
@@ -41,6 +51,7 @@ telescope.setup {
           ["H"] = fb_actions.toggle_hidden,
           ["r"] = fb_actions.rename,
           ["d"] = fb_actions.create,
+          ["D"] = fb_actions.remove,
           ["%"] = fb_actions.create,
           ["y"] = fb_actions.copy,
           ["h"] = fb_actions.goto_parent_dir,
@@ -50,4 +61,5 @@ telescope.setup {
     },
   },
 }
+telescope.load_extension "file_browser"
 telescope.load_extension "file_browser"

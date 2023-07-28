@@ -1,13 +1,14 @@
 return {
   {
     'nvim-telescope/telescope.nvim',
-    version = '0.1.1',
+    version = '0.1.2',
     dependencies = { { 'nvim-lua/plenary.nvim' } }
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
   'folke/tokyonight.nvim',
   {
@@ -26,7 +27,7 @@ return {
     }
   },
 
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+  { 'nvim-treesitter/nvim-treesitter',          build = ':TSUpdate' },
   { 'nvim-treesitter/playground' },
 
   { 'ThePrimeagen/harpoon' },
