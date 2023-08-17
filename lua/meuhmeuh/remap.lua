@@ -34,6 +34,9 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 -- Easy ciw
 vim.keymap.set("n", "<leader>,", "ciw")
 
+-- Easy yiw
+vim.keymap.set("n", "<leader>w", "yiw")
+
 -- Disabling Q
 vim.keymap.set("n", "Q", "<nop>")
 
