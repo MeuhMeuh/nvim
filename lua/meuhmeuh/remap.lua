@@ -65,6 +65,8 @@ vim.keymap.set("n", "<leader>X", "<cmd>%bd!|e#|bd!#<CR>")
 -- Bufferline
 vim.keymap.set("n", "<C-h>", "<cmd>:BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>:BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>:BufferLineMovePrev<CR>")
+vim.keymap.set("n", "<C-g>", "<cmd>:BufferLineMoveNext<CR>")
 
 -- Copy relative path of current buffer
 vim.api.nvim_set_keymap('n', '<Leader>tt',
