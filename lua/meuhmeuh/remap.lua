@@ -4,6 +4,8 @@ vim.keymap.set("i", "jk", "<Esc>")
 -- Paste without yanking newly selected line
 vim.keymap.set("x", "<leader>pp", "\"_dP")
 
+vim.keymap.set("n", "<leader>w", ":w<CR>")
+
 -- Remap netrw :Ex
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -31,11 +33,9 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 -- Deleting to void register
 vim.keymap.set("v", "<leader>d", "\"_d")
 
--- Easy ciw
-vim.keymap.set("n", "<leader>,", "ciw")
-
--- Easy yiw
-vim.keymap.set("n", "<leader>w", "yiw")
+-- Handy delete/replace functions that do not yank
+vim.keymap.set("n", "S", "\"_ciw") -- Originally deleting the whole line
+vim.keymap.set("n", "D", "\"_diw") -- Originally deleting rest of the line
 
 -- Disabling Q
 vim.keymap.set("n", "Q", "<nop>")
@@ -81,6 +81,7 @@ vim.keymap.set("n", "<C-h>", "<cmd>:BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>:BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<C-f>", "<cmd>:BufferLineMovePrev<CR>")
 vim.keymap.set("n", "<C-g>", "<cmd>:BufferLineMoveNext<CR>")
+
 
 -- Copy relative path of current buffer
 vim.api.nvim_set_keymap('n', '<Leader>tt',

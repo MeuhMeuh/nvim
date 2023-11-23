@@ -49,6 +49,28 @@ lsp.configure('yamlls', {
   }
 })
 
+lsp.configure('eslint', {
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end
+})
+
+-- lsp.format_on_save({
+--   format_opts = {
+--     async = false,
+--     timeout_ms = 10000,
+--   },
+--   servers = {
+--     ['vscode-eslint-language-server'] = { 'javascript', 'typescript', 'typescriptreact' },
+--     -- ['typescript-language-server'] = { 'typescript', 'typescriptreact' },
+--     ['lua-language-server'] = { 'lua' },
+--     ['rust_analyzer'] = { 'rust' },
+--   }
+-- })
+
 -- lsp.configure('rust_analyzer', {
 --   assist = {
 --     importEnforceGranularity = true,
@@ -82,28 +104,41 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
   vim.keymap.set("n", "<leader>va", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "R", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vR", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("v", "<leader>vR", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vr", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
-  vim.keymap.set('n', '<leader>w', function()
-    local params = vim.lsp.util.make_formatting_params({})
-    local handler = function(err, result)
-      if not result then return end
+  -- vim.keymap.set('n', '<leader>w', function()
+  --   local params = vim.lsp.util.make_formatting_params({})
+  --   local handler = function(err, result)
+  --     if not result then return end
+  --
+  --     vim.lsp.buf.format()
+  --     -- Todo: move that to eslint's own on_attach fn
+  --     -- vim.cmd.EslintFixAll()
+  --     -- vim.api.nvim_echo({ { tostring(vim.fn.exists(':EslintFixAll')), 'None' } }, true, {})
+  --     if vim.fn.exists(':EslintFixAll') > 0 then
+  --       vim.notify(":EslintFixAll executed", "info")
+  --       vim.cmd('EslintFixAll')
+  --     else
+  --       vim.notify(":EslintFixAll not available", "warning")
+  --     end
+  --     vim.cmd('write')
+  --   end
+  --
+  --   client.request('textDocument/formatting', params, handler, bufnr)
+  -- end, { buffer = bufnr })
 
-      vim.lsp.buf.format()
-      -- Todo: move that to eslint's own on_attach fn
-      -- vim.cmd.EslintFixAll()
-      -- vim.api.nvim_echo({ { tostring(vim.fn.exists(':EslintFixAll')), 'None' } }, true, {})
-      if vim.fn.exists(':EslintFixAll') > 0 then
-        vim.cmd('EslintFixAll')
-      end
-      vim.cmd('write')
+  vim.keymap.set('n', '<leader>W', function()
+    if vim.fn.exists(':EslintFixAll') > 0 then
+      vim.cmd('EslintFixAll')
+      vim.notify(":EslintFixAll executed", "info")
+    else
+      vim.notify(":EslintFixAll not available", "warning")
     end
-
-    client.request('textDocument/formatting', params, handler, bufnr)
   end, { buffer = bufnr })
 end)
 

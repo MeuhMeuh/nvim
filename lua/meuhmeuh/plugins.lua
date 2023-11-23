@@ -119,5 +119,8 @@ return {
       require("nvim-surround").setup({
       })
     end
+  },
+  {
+    "rmagatti/auto-session"
   }
 }
