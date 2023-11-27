@@ -18,6 +18,7 @@ vim.keymap.set('n', '<leader>pv', ':Telescope file_browser path=%:p:h select_buf
 telescope.setup {
   defaults = {
     initial_mode = "normal",
+    file_ignore_patterns = {".git/.*"}
   },
   pickers = {
     find_files = {
@@ -59,7 +60,14 @@ telescope.setup {
         },
       },
     },
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+    },
   },
 }
 telescope.load_extension "file_browser"
 telescope.load_extension "file_browser"
+telescope.load_extension "fzf"
