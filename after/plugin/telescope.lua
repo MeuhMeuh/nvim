@@ -18,7 +18,7 @@ vim.keymap.set('n', '<leader>pv', ':Telescope file_browser path=%:p:h select_buf
 telescope.setup {
   defaults = {
     initial_mode = "normal",
-    file_ignore_patterns = {".git/.*"}
+    file_ignore_patterns = {".git/.*"},
   },
   pickers = {
     find_files = {
