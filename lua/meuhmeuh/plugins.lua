@@ -53,7 +53,14 @@ return {
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },     -- Required
       { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'L3MON4D3/LuaSnip' },     -- Required
+
+      {
+	      "L3MON4D3/LuaSnip",
+	      -- follow latest release.
+	      version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	      -- install jsregexp (optional!).
+	      build = "make install_jsregexp"
+      },
     }
   },
 
@@ -121,7 +128,8 @@ return {
       })
     end
   },
-  {
-    "rmagatti/auto-session"
-  }
+  -- Saving session per directory
+  { "rmagatti/auto-session" },
+  -- Center buffer
+  { "folke/zen-mode.nvim" },
 }

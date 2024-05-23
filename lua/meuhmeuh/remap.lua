@@ -87,3 +87,5 @@ vim.keymap.set("n", "<C-g>", "<cmd>:BufferLineMoveNext<CR>")
 vim.api.nvim_set_keymap('n', '<Leader>tt',
   ':let @+ = join(systemlist("echo " .. fnameescape(expand("%"))), "\\n") <CR><cmd>lua vim.notify("Path in clipboard", "info")<CR>',
   { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>z", "<cmd>:ZenMode<CR>")

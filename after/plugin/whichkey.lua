@@ -50,9 +50,10 @@ wk.register({
       s = "Workspace symbol"
     },
   },
-  x = 'Close current buffer',
-  X = 'Close all buffers except current',
+  x = "Close current buffer",
+  X = "Close all buffers except current",
   y = "Copy in OS yank",
+  z = "Zen mode"
 }, { prefix = "<leader>" })
 
 wk.register(mappings, opts)

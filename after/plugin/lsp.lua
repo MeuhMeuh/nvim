@@ -58,18 +58,28 @@ lsp.configure('eslint', {
   end
 })
 
--- lsp.format_on_save({
---   format_opts = {
---     async = false,
---     timeout_ms = 10000,
---   },
---   servers = {
---     ['vscode-eslint-language-server'] = { 'javascript', 'typescript', 'typescriptreact' },
---     -- ['typescript-language-server'] = { 'typescript', 'typescriptreact' },
---     ['lua-language-server'] = { 'lua' },
---     ['rust_analyzer'] = { 'rust' },
---   }
+-- lsp.configure('solargraph', {
+--   on_attach = function(client, bufnr)
+--     vim.api.nvim_create_autocmd("BufWritePre", {
+--       buffer = bufnr,
+--       command = vim.lsp.buf.format(),
+--     })
+--   end
 -- })
+
+lsp.format_on_save({
+  format_opts = {
+    async = true,
+    timeout_ms = 10000,
+  },
+  servers = {
+    -- ['vscode-eslint-language-server'] = { 'javascript', 'typescript', 'typescriptreact' },
+    -- ['typescript-language-server'] = { 'typescript', 'typescriptreact' },
+    -- ['lua-language-server'] = { 'lua' },
+    -- ['rust_analyzer'] = { 'rust' },
+    ['solargraph'] = { 'ruby' }
+  }
+})
 
 -- lsp.configure('rust_analyzer', {
 --   assist = {
