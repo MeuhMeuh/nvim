@@ -1,0 +1,8 @@
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+
+# yarn binaries
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# npm binaries
+export PATH="$HOME/.config/npm/bin:$PATH"
+# tmux-sessionizer & co
+export PATH="$HOME/.config/nvim/scripts:$PATH"

@@ -1,0 +1,9 @@
+# .zshrc that was moved to ~/.oh-my-zsh/custom as it's the recommended way to override stuff when using oh my zsh.
+export EDITOR='vim'
+
+source "$ZSH_CUSTOM/.env"
+source "$ZSH_CUSTOM/.functions"
+source "$ZSH_CUSTOM/.aliases"
+source "$ZSH_CUSTOM/.path"
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
