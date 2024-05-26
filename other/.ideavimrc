@@ -1,0 +1,60 @@
+let mapleader=" "
+
+set clipboard+=unnamed
+
+set commentary
+set surround
+
+let g:argtextobj_pairs="[:],(:),<:>"
+
+set showmode
+set so=5
+set incsearch
+set nu
+
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+imap jk <Esc>
+
+map <leader>e <Action>(GotoFile)
+map <leader>fw <Action>(FindInPath)
+map <leader>gb <Action>(Annotate)
+map <leader>j <Action>(ShowIntentionActions)
+map <leader>k <Action>(QuickJavaDoc)
+map <leader>q <Action>(HideActiveWindow)
+map <leader>R <Action>(Refactorings.QuickListPopupAction)
+map <leader>vd <Action>(ShowErrorDescription)
+map <leader>vr <Action>(RenameElement)
+map <leader>vR <Action>(FindUsages)
+map <leader>tt <Action>(CopyContentRootPath)
+map <leader>w <Action>(SaveAll)
+map <leader>x <Action>(CloseContent)
+map <leader>X <Action>(CloseAllEditors)
+map <leader>y <Action>($Copy)
+
+nmap <C-d> 5jzz_
+nmap <C-u> 5kzz_
+
+
+nmap S "_ciw
+nmap D "_'diw
+nmap R <Action>(FindUsages)
+vmap J <Action>(MoveLineDown)
+vmap K <Action>(MoveLineUp)
+imap <C-Space> <Action>(CodeCompletion)
+vmap <C-Space> <Action>(EditorSelectWord)
+nmap <C-Space> <Action>(EditorSelectWord)
+vmap <C-S-Space> <Action>(EditorUnSelectWord)
+nmap <C-S-Space> <Action>(EditorUnSelectWord)
+
+# askip c'est mieux
+nmap <C-o> :action Back<CR>
+nmap <C-i> :action Forward<CR>
+
+
+nmap gi :action GotoImplementation<cr>
+nmap gu :action ShowUsages<cr>
+nmap gU :action FindUsages<cr>
+nmap gd :action GotoDeclaration<cr>
