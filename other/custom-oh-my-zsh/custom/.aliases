@@ -1,11 +1,13 @@
+alias zshcustom="vim $ZSH_CUSTOM"
+alias custom="vim $ZSH_CUSTOM"
+
 alias reload="source $ZSH_CUSTOM/zshrc.zsh"
+
 alias zshrc="v $ZSH_CUSTOM/zshrc.zsh"
+
 alias editaliases="vim $ZSH_CUSTOM/.aliases"
 alias editenv="vim $ZSH_CUSTOM/.env"
-alias engagement="cd ~/Projects/engagement-api"
-alias gtw="cd ~/Projects/engagement-gateway"
-alias corpo="cd ~/Projects/corpo"
-alias listen="cd ~/Projects/listen-corpo-frontend"
+alias editfunctions="vim $ZSH_CUSTOM/.functions"
 
 # git add -p with unstaged files
 alias gs='git status'
@@ -22,24 +24,12 @@ alias gasrc='gapan src'
 
 alias kill3009='lsof -i tcp:3009 -t | xargs kill'
 
-alias kouki="sh ~/Scripts/kouki.sh"
-
 alias 1662='ssh debian@166220thave.com'
 
 alias jwt="(yarn --silent --cwd ~/Projects/engagement-api dev:jwt --silent | tail -1 | tr -d '\n' | pbcopy)"
 
-# Old - before SSM migration
-# alias tunnel-staging="kubectl config use-context arn:aws:eks:eu-west-3:607565025904:cluster/general-staging && sudo sshuttle --dns -r app@35.181.140.43 10.35.0.0/16"
-# alias tunnel-sandbox="kubectl config use-context arn:aws:eks:eu-west-3:996103861543:cluster/general-sandbox && sudo sshuttle --dns -r app@52.47.203.160 10.36.0.0/16"
-# alias tunnel-production="kubectl config use-context arn:aws:eks:eu-west-3:382906469911:cluster/general-production && sudo sshuttle --dns -r app@15.236.85.201 10.33.0.0/16"
-# alias tunnel-br-staging="kubectl config use-context arn:aws:eks:sa-east-1:607565025904:cluster/general-br-staging && sudo sshuttle --dns -r app@54.232.38.205 10.43.0.0/16"
-# alias tunnel-br-sandbox="kubectl config use-context arn:aws:eks:sa-east-1:996103861543:cluster/general-br-sandbox && sudo sshuttle --dns -r app@54.94.56.158 10.42.0.0/16"
-# alias tunnel-br-production="kubectl config use-context arn:aws:eks:sa-east-1:382906469911:cluster/general-br-production && sudo sshuttle --dns -r app@54.94.172.219 10.41.0.0/16"
-# alias tunnel-training="kubectl config use-context arn:aws:eks:eu-west-3:802440165263:cluster/k8s-training && sshuttle --dns -r app@13.38.199.161 10.38.0.0/16"
 
 alias awsconnect='aws sso login --sso-session central'
-# alias awsconnect='aws-google-auth --region eu-central-1 --idp-id C00sd7n7s --sp-id 396038499304'
-# alias awsgoogleauth='aws-google-auth --region eu-west-3 --idp-id C00sd7n7s --sp-id 396038499304'
 
 alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]"'
 alias copuuid='uuidgen | pbcopy'
