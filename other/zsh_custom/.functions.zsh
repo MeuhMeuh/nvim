@@ -13,4 +13,4 @@ fzistory () {
   fi
 }
 
-source "$ZSH_CUSTOM/.functions-private"
+source "$ZSH_CUSTOM/.functions-private.zsh"

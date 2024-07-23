@@ -5,9 +5,10 @@ alias reload="source $ZSH_CUSTOM/zshrc.zsh"
 
 alias zshrc="v $ZSH_CUSTOM/zshrc.zsh"
 
-alias editaliases="vim $ZSH_CUSTOM/.aliases"
-alias editenv="vim $ZSH_CUSTOM/.env"
-alias editfunctions="vim $ZSH_CUSTOM/.functions"
+alias editaliases="vim $ZSH_CUSTOM/.aliases.zsh"
+alias editenv="vim $ZSH_CUSTOM/.env.zsh"
+alias editpath="vim $ZSH_CUSTOM/.path.zsh"
+alias editfunctions="vim $ZSH_CUSTOM/.functions.zsh"
 
 # git add -p with unstaged files
 alias gs='git status'
@@ -53,13 +54,4 @@ zle -N fzistory
 bindkey '^R' fzistory
 bindkey '^F' history-incremental-pattern-search-backward
 
-
-# ######## SWILE ########
-
-# Reconfigure 'default' aliases
-alias tunnel-staging="kubectl config use-context arn:aws:eks:eu-west-3:607565025904:cluster/general-staging && ssm-tunnel 10.35.0.0/16"
-alias tunnel-production="kubectl config use-context arn:aws:eks:eu-west-3:382906469911:cluster/general-production && ssm-tunnel 10.33.0.0/16"
-
-# SSH with SSM
-alias aws-list-ec2-instances='aws ec2 describe-instances --query '\''Reservations[*].Instances[*].[Tags[?Key==`Name`].Value|[0],InstanceId]'\'' --output text | awk '\''{ print $1 " = " $2 }'\'' | grep -v "karpenter"'
-alias aws-ssh='aws ssm start-session --target'
+source "$ZSH_CUSTOM/.aliases-private.zsh"

@@ -5,4 +5,4 @@ export DEBUG_PRINT_LIMIT=0
 export OLLAMA_API_BASE=http://127.0.0.1:11434
 
 
-source "$ZSH_CUSTOM/.env-private"
+source "$ZSH_CUSTOM/.env-private.zsh"
