@@ -13,5 +13,4 @@ fzistory () {
   fi
 }
 
-CURRENT_FILE_DIR=$(dirname ${(%):-%N})
-source $CURRENT_FILE_DIR/.functions-private
+source "$ZSH_CUSTOM/.functions-private"
