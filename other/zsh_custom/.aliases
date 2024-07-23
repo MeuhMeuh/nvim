@@ -27,7 +27,9 @@ alias kill3009='lsof -i tcp:3009 -t | xargs kill'
 alias 1662='ssh debian@166220thave.com'
 
 alias jwt="(yarn --silent --cwd ~/Projects/engagement-api dev:jwt --silent | tail -1 | tr -d '\n' | pbcopy)"
+alias jwtcorpocore="/Users/alexis.menard/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/jwt_manipulator-1.0.1/bin/new-jwt-token --sub=3af0e9cd-45ff-448e-af4d-775ee6a6025b"
 
+alias venvactivate='source .venv/bin/activate'
 
 alias awsconnect='aws sso login --sso-session central'
 
