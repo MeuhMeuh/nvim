@@ -1,3 +1,4 @@
+export PROJECTS=$HOME/Projects
 # vitest/jest debug print limit
 export DEBUG_PRINT_LIMIT=0
 

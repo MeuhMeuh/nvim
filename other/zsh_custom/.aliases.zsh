@@ -5,6 +5,8 @@ alias reload="source $ZSH_CUSTOM/zshrc.zsh"
 
 alias zshrc="v $ZSH_CUSTOM/zshrc.zsh"
 
+alias proj="cd $PROJECTS"
+
 alias editaliases="vim $ZSH_CUSTOM/.aliases.zsh"
 alias editenv="vim $ZSH_CUSTOM/.env.zsh"
 alias editpath="vim $ZSH_CUSTOM/.path.zsh"
