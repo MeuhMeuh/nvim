@@ -13,7 +13,9 @@ alias custom="vim $ZSH_CUSTOM"
 alias dev='tmux a -t dev'
 
 alias editaliases="vim $ZSH_CUSTOM/.aliases.zsh"
+alias editaliasesprivate="vim $ZSH_CUSTOM/.aliases-private.zsh"
 alias editfunctions="vim $ZSH_CUSTOM/.functions.zsh"
+alias editfunctionsprivate="vim $ZSH_CUSTOM/.functions-private.zsh"
 alias editenv="vim $ZSH_CUSTOM/.env.zsh"
 alias editpath="vim $ZSH_CUSTOM/.path.zsh"
 

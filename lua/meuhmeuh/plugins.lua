@@ -1,15 +1,16 @@
 return {
   {
     'nvim-telescope/telescope.nvim',
-    version = '0.1.2',
+    version = '0.1.8',
     dependencies = { { 'nvim-lua/plenary.nvim' } }
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   },
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   'folke/tokyonight.nvim',
   {
@@ -34,35 +35,6 @@ return {
   { 'ThePrimeagen/harpoon' },
 
   { 'mbbill/undotree' },
-
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    dependencies = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' }, -- Required
-      {
-        -- Optional
-        'williamboman/mason.nvim',
-        build = function()
-          pcall(vim.cmd, 'MasonUpdate')
-        end,
-      },
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },     -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-
-      {
-	      "L3MON4D3/LuaSnip",
-	      -- follow latest release.
-	      version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	      -- install jsregexp (optional!).
-	      build = "make install_jsregexp"
-      },
-    }
-  },
 
   {
     "folke/which-key.nvim",

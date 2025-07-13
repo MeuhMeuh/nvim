@@ -4,20 +4,25 @@ local builtin = require('telescope.builtin')
 
 local dropdown = require('telescope.themes').get_dropdown()
 
-vim.keymap.set('n', '<leader>ff', ':Telescope find_files theme=dropdown layout_config={width=0.8}  <CR>', {})
-vim.keymap.set('n', '<leader>e', ':Telescope find_files theme=dropdown layout_config={width=0.8}<CR>', {})
-vim.keymap.set('n', '<leader>fg', ':Telescope git_files theme=dropdown layout_config={width=0.8}<CR>', {})
-vim.keymap.set('n', '<leader>fw', ':Telescope live_grep theme=dropdown layout_config={width=0.8}<CR>', {})
-vim.keymap.set('n', '<leader>fW', ':Telescope grep_string theme=dropdown layout_config={width=0.8}<CR>', {})
-vim.keymap.set('n', '<leader>fb', ':Telescope buffers theme=dropdown layout_config={width=0.8}<CR>', {})
-vim.keymap.set('n', '<leader>fh', ':Telescope oldfiles theme=dropdown layout_config={width=0.8}<CR>', {})
-vim.keymap.set('n', '<leader>f<leader>', ':Telescope resume theme=dropdown layout_config={width=0.8}<CR>', {})
-vim.keymap.set('n', '<leader>pv', ':Telescope file_browser theme=dropdown layout_config={width=0.8} path=%:p:h select_buffer=true<CR>')
+-- note: for dropdown, add   <CR>
+vim.keymap.set('n', '<leader>ff', ':Telescope find_files   <CR>', {})
+vim.keymap.set('n', '<leader>e', ':Telescope find_files <CR>', {})
+vim.keymap.set('n', '<leader>fg', ':Telescope git_files <CR>', {})
+vim.keymap.set('n', '<leader>fw', ':Telescope live_grep <CR>', {})
+vim.keymap.set('n', '<leader>fW', ':Telescope grep_string <CR>', {})
+vim.keymap.set('n', '<leader>fb', ':Telescope buffers <CR>', {})
+vim.keymap.set('n', '<leader>fh', ':Telescope oldfiles <CR>', {})
+vim.keymap.set('n', '<leader>f<leader>', ':Telescope resume <CR>', {})
+vim.keymap.set(
+  'n',
+  '<leader>pv',
+  ':Telescope file_browser  path=%:p:h select_buffer=true<CR>'
+)
 
 telescope.setup {
   defaults = {
     initial_mode = "normal",
-    file_ignore_patterns = {".git/.*"},
+    file_ignore_patterns = { ".git/.*", "tmp/.*" },
     theme = dropdown
   },
   pickers = {
@@ -61,10 +66,10 @@ telescope.setup {
       },
     },
     fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+      fuzzy = true,                   -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true,    -- override the file sorter
+      case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
     },
   },
 }

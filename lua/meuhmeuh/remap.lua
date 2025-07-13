@@ -30,6 +30,12 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
+-- In visual mode, (un)indent without losing selection
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<S-Tab>", "<gv")
+vim.keymap.set("v", "<Tab>", ">gv")
+
 -- Deleting to void register
 vim.keymap.set("v", "<leader>d", "\"_d")
 
@@ -66,10 +72,20 @@ end)
 
 -- Easy replace
 vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+
+vim.keymap.set(
+  'x',
+  '<leader>ss',
+  [["zy:%s/<C-r>z//gI<Left><Left><Left>]],
+  { noremap = true }
+)
 vim.keymap.set("n", "<leader>s$", [[:s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>sc", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left><Left>]])
 vim.keymap.set("n", "<leader>sGG", [[:.,$s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>sGc", [[:.,$s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left><Left>]])
+
+
 --
 -- Delete current buffer
 vim.keymap.set("n", "<leader>x", "<cmd>bdelete! %<CR>")
@@ -77,10 +93,16 @@ vim.keymap.set("n", "<leader>x", "<cmd>bdelete! %<CR>")
 vim.keymap.set("n", "<leader>X", "<cmd>%bd!|e#|bd!#<CR>")
 
 -- Bufferline
-vim.keymap.set("n", "<C-h>", "<cmd>:BufferLineCyclePrev<CR>")
-vim.keymap.set("n", "<C-l>", "<cmd>:BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<C-S-h>", "<cmd>:BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<C-S-l>", "<cmd>:BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<C-f>", "<cmd>:BufferLineMovePrev<CR>")
 vim.keymap.set("n", "<C-g>", "<cmd>:BufferLineMoveNext<CR>")
+
+-- Moving in between windows opened with vs/sp
+vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true })
 
 
 -- Copy relative path of current buffer
