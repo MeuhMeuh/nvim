@@ -1,6 +1,9 @@
 -- What else?
 vim.keymap.set("i", "jk", "<Esc>")
 
+-- Clear highlights with Esc in normal mode
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
 -- Paste without yanking newly selected line
 vim.keymap.set("x", "<leader>pp", "\"_dP")
 
@@ -50,12 +53,14 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "_", "0_")
 
 -- Vim Quicklist
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+vim.keymap.set("n", "<leader>qj", "<cmd>cnext<CR>zz", { desc = "Quickfix: next" })
+vim.keymap.set("n", "<leader>qk", "<cmd>cprev<CR>zz", { desc = "Quickfix: previous" })
 
-vim.keymap.set("n", "<leader>q", function()
+-- Location list
+vim.keymap.set("n", "<leader>lj", "<cmd>lnext<CR>zz", { desc = "Location: next" })
+vim.keymap.set("n", "<leader>lk", "<cmd>lprev<CR>zz", { desc = "Location: previous" })
+
+vim.keymap.set("n", "<leader>qq", function()
   local qf_exists = false
   for _, win in pairs(vim.fn.getwininfo()) do
     if win["quickfix"] == 1 then

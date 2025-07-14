@@ -43,3 +43,8 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "120"
 
 vim.opt.winbar = "%=%m %f"
+
+-- Autocomplete: max 8 items
+vim.opt.pumheight = 8
+-- Autocomplete: do not insert until we've selected something (askip)
+vim.opt.completeopt = { "menuone", "noinsert", "noselect" }

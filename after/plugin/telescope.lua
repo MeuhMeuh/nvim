@@ -13,6 +13,7 @@ vim.keymap.set('n', '<leader>fW', ':Telescope grep_string <CR>', {})
 vim.keymap.set('n', '<leader>fb', ':Telescope buffers <CR>', {})
 vim.keymap.set('n', '<leader>fh', ':Telescope oldfiles <CR>', {})
 vim.keymap.set('n', '<leader>f<leader>', ':Telescope resume <CR>', {})
+vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set(
   'n',
   '<leader>pv',

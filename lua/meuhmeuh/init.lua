@@ -16,7 +16,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("meuhmeuh.plugins")
 
-require("meuhmeuh.remap") require("meuhmeuh.set") require("meuhmeuh.lsp")
+require("meuhmeuh.remap")
+require("meuhmeuh.set")
+require("meuhmeuh.lsp")
 
 -- For an unknown reason, needs to be set after everything
 vim.opt.scroll = 5

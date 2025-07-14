@@ -13,12 +13,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       -- Create a keymap for vim.lsp.buf.implementation ...
     end
     -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-    if client:supports_method('textDocument/completion') then
-      -- Optional: trigger autocompletion on EVERY keypress. May be slow!
-      -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-      -- client.server_capabilities.completionProvider.triggerCharacters = chars
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-    end
+    -- DISABLED : completion was inline :(
+    -- if client:supports_method('textDocument/completion') then
+    --   -- Optional: trigger autocompletion on EVERY keypress. May be slow!
+    --   -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+    --   -- client.server_capabilities.completionProvider.triggerCharacters = chars
+    --   vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+    -- end
     -- Auto-format ("lint") on save.
     -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
     if not client:supports_method('textDocument/willSaveWaitUntil')
@@ -34,7 +35,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- gd
+-- lsp g* commands
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition,

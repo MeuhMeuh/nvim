@@ -10,7 +10,7 @@ return {
   },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim",                          name = "catppuccin", priority = 1000 },
 
   'folke/tokyonight.nvim',
   {
@@ -29,13 +29,33 @@ return {
     }
   },
 
-  { 'nvim-treesitter/nvim-treesitter',          build = ':TSUpdate' },
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   { 'nvim-treesitter/playground' },
 
   { 'ThePrimeagen/harpoon' },
 
   { 'mbbill/undotree' },
 
+  -- Changes of how lines & blocks are split
+  {
+    'Wansmer/treesj',
+    keys = { '<space>m', '<space>j', '<space>s' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('treesj').setup({ --[[ your config ]] })
+    end,
+  },
+
+  -- Completion
+  { "hrsh7th/cmp-nvim-lsp" },
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = { "hrsh7th/cmp-nvim-lsp" }
+  },
+
+
+  -- Help for keys
   {
     "folke/which-key.nvim",
     config = function()
