@@ -4,16 +4,6 @@ tmux_sessionizer() {
 }
 
 # Fuzzy history search
-# Old, ça marchait très bien mais la prio du fuzzy était pas ouf
-# fzistory () {
-#   cmd=$(history 0 | sort -rn | cut -c 8- | tr "\t" " " | uniq -u | fzf --height=7 --layout=reverse --no-sort)
-#   zle reset-prompt
-#
-#   if [ -n "$cmd" ]; then
-#     zle -U "$cmd"
-#   fi
-# }
-
 fzistory() {
   local selected_cmd
   selected_cmd=$(
@@ -50,5 +40,11 @@ fzistory() {
     zle -U "$actual_cmd"
   fi
 }
+
+# fnm (replacement for nvm)
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# zoxide (cd replacement)
+eval "$(zoxide init zsh)"
 
 source "$ZSH_CUSTOM/.functions-private.zsh"
